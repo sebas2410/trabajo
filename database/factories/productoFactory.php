@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\producto;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +14,16 @@ class productoFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+     protected $model = producto::class;
     public function definition()
     {
         return [
-            //
+          'nombre'=>$this->faker->sentence(),
+          'descripcion'=>$this->faker->paragraph(),
+          'precio'=>$this->faker->randomNumber(),
+          'existencias'=>$this->faker->sentence(),
+          'proveedor'=>$this->faker->randomElement(['Anway','johnson y johnson','Colgate Palmolive']),
         ];
     }
 }

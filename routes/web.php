@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\productosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('producto/create',[productosController::class, 'create']);
+Route::post('producto',[productosController::class,'store'])->name('producto.store');
